@@ -8,7 +8,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using PluginInterface;
-using ICSharpCode.SharpZipLib.Checksums;
+using ICSharpCode.SharpZipLib.Checksum;
 using ICSharpCode.SharpZipLib.Zip;
 
 namespace FileDropPlugin{

@@ -59,7 +59,7 @@ namespace ClipboardManager {
                     int start = int.Parse(documentText.Substring(startHtml, endHtml - startHtml));
                     int end = int.Parse(documentText.Substring(endHtml + 12, startFragment - endHtml - 12));
 
-                    webBrowser.DocumentText = documentText.Substring(start, end - start).Replace("Â", "&nbsp");
+                    webBrowser.DocumentText = documentText.Substring(start, end - start).Replace("?", "&nbsp");
                     htmlPropertyLabel.Text = "Length: " + clip.SecondaryPluginData.ToString().Length + 
                                              "\nEncoding: " + webBrowser.Document.Encoding;
 

@@ -61,7 +61,7 @@ namespace ClipboardManager {
         PluginHost plugins = new PluginHost();
         NameValueCollection genSettings = new NameValueCollection();
         ClipEntry editingClip = null;
-
+        const string PlugPath = "Plugins";
         public PluginHost PlugHost {
             get { return plugins; }
         }
@@ -139,7 +139,7 @@ namespace ClipboardManager {
 
         private void CheckOptionsFile() {
             if (genSettings["PluginDir"] == null)
-                genSettings.Add("PluginDir", Application.StartupPath);
+                genSettings.Add("PluginDir", $"{Application.StartupPath}/{PlugPath}");
 
             if (genSettings["LoadOnWindows"] == null)
                 genSettings.Add("LoadOnWindows", "false");
@@ -757,7 +757,7 @@ namespace ClipboardManager {
                         foreach (XmlAttribute setting in pluginSetting.Attributes)
                             pluginOptions.Add(setting.Name, setting.Value);
 
-                    plugins.PluginConfig.Add(Int32.Parse(plugID.Name.Substring(3)), pluginOptions);
+                    plugins.PluginConfig.Add(plugID.Name, pluginOptions);
                 }
             }
             catch (XmlException xe) {
